@@ -19,8 +19,6 @@
   <meta name="apple-mobile-web-app-title" content="{{ .Site.Title }}">
   <meta name="apple-mobile-web-app-title" content="{{ .Site.Title }}">
 
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,300,100%7CRoboto+Slab:400,300,100%7CRoboto+Mono:400,300,100" media="not all" onload="if (media != 'all')media='all'">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" media="not all" onload="if (media != 'all') media = 'all'">
   <link rel="stylesheet" href="/css/style.css">
 
   {{ partial "favicons.html" . }}
@@ -31,13 +29,15 @@
   {{ partial "open-graph.html" . }}
   {{ partial "twitter-card.html" . }}
 
-  {{ if eq $.Site.LanguageCode "en" }}
-  <link rel="alternate" hreflang="sv" href="http://vufuzi.se">
+  {{ if eq $.Site.LanguageCode "sv" }}
+  <link rel="alternate" hreflang="no" href="https://jeremy.no">
   {{ end }}
 
-  {{ if eq $.Site.LanguageCode "sv" }}
-  <link rel="alternate" hreflang="en" href="http://vufuzi.com">
+  {{ if eq $.Site.LanguageCode "no" }}
+  <link rel="alternate" hreflang="sv" href="https://jeremy.sv">
   {{ end }}
+
+  <link rel="authorization_endpoint" href="https://indieauth.com/auth">
 
   {{ .Hugo.Generator }}
 </head>
@@ -46,14 +46,9 @@
   {{ partial "header.html" . }}
 {{ end }}
 
-{{ if .IsHome }}
 <div class="site-info">
-  <h1 class="site-title">Vufuzi</h1>
-  <p class="site-description">
-    {{ i18n "companyDescription" }}
-  </p>
+  <h1 class="site-title">{{.Title}}</h1>
 </div>
-{{ end }}
 
 <main role="main">
   {{ block "main" . }}{{ end }}

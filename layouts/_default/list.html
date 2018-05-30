@@ -1,5 +1,5 @@
-{{ range .Data.Pages }}
-	{{ if in .Params.series "homepage" }}
-		{{ .Render "single"}}
+{{ range first 10 .Data.Pages.ByDate.Reverse }}
+	{{ if eq .Type "post" }}
+		{{ .Render "summary"}}
 	{{ end }}
 {{ end }}
